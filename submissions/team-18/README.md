@@ -18,7 +18,7 @@ The first models we experimented with were logistic regression, multimodal Naive
 
 As we primarily used the Jupyter Notebook to run our experiments please reference these instructions to run the code.
 
-1. Access and open our experiments ('Experiment_git.ipynb,' 'logisticreg_experiment.ipynb,' **'minghan's experiment'**)
+1. Access and open our experiments (`Experiment_git.ipynb,` `logisticreg_experiment.ipynb,` **`minghan's experiment`**)
 2. Install the required libraries:
    - pandas
    - numpy
@@ -28,7 +28,7 @@ As we primarily used the Jupyter Notebook to run our experiments please referenc
 4. Run all cells in order so the notebook trains and evaluates all the models.
 
 Python version:
-- For 'logisticreg_experiment.ipynb,' - Python version 3.13.18
+- For `logisticreg_experiment.ipynb,` - Python version 3.13.18
 
 ### Instructions for Final Model/Submission.csv
 
