@@ -12,6 +12,19 @@ This project was about developing a binary test classifier by experimenting with
 
 The first models we experimented with were logistic regression, multimodal Naive Bayes, and SVM which used TF-IDF features for the text. Of these models, Logistic Regression score the highest validation AUROC score of 0.9246 after hyperparameter tuning, however when we made the first submission we received a score of 0.81356 from Kaggle which was lower than our validation score. 
 
+### Minghan’s CPU experiments
+
+Minghan compared a decision tree, random forest, histogram gradient boosting, and a multilayer perceptron (MLP) against a separate logistic regression baseline using word and character TF-IDF. The four models used 128 SVD components and 10 writing-style features. The MLP also scaled its inputs. All feature transformations were fitted on the training partition.
+
+| Model | Main settings | Train AUROC | Validation AUROC | Validation 95% CI | Fit and save |
+| --- | --- | ---: | ---: | --- | ---: |
+| Logistic regression (baseline) | Sparse word and character TF-IDF, max 500 iterations | 0.999239 | 0.964987 | 0.957674–0.972119 | 15.4 s |
+| Decision tree | Maximum depth 12, minimum 10 samples per leaf | 0.989933 | 0.963850 | 0.954426–0.972596 | 21.5 s |
+| Random forest | 350 trees, minimum 3 samples per leaf | 0.999997 | 0.992921 | 0.990047–0.995223 | 23.5 s |
+| Histogram gradient boosting | 250 iterations, learning rate 0.07 | 1.000000 | **0.998082** | 0.996775–0.999039 | 21.0 s |
+| MLP | Hidden layers of 256 and 64 units, alpha 0.01, max 45 iterations | 1.000000 | 0.983124 | 0.978277–0.987254 | 20.4 s |
+
+Histogram gradient boosting had the highest validation AUROC in this comparison (**0.998082**). The boosting submission scored approximately **0.87 public AUROC** on Kaggle.
 *INSERT OTHER MODELS HERE* 
 
 ## How to Run 
