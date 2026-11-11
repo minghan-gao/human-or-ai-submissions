@@ -27,21 +27,16 @@ Minghan compared a decision tree, random forest, histogram gradient boosting, an
 Histogram gradient boosting had the highest validation AUROC in this comparison (**0.998082**). The boosting submission scored approximately **0.87 public AUROC** on Kaggle.
 *INSERT OTHER MODELS HERE* 
 
-## How to Run 
+## How to Run
 
-As we primarily used the Jupyter Notebook to run our experiments please reference these instructions to run the code.
+Run the notebooks in Jupyter and Minghan’s CPU experiments from the terminal. Both workflows use the same stratified split of 8,000 training and 2,000 validation examples with seed `42`.
 
-1. Access and open our experiments (`Experiment_git.ipynb,` `logisticreg_experiment.ipynb,` **`minghan's experiment`**)
-2. Install the required libraries:
-   - pandas
-   - numpy
-   - scikit-learn
-   - matplotlib
-3. Upload the test.csv, train.csv, and unlabeled.csv files
-4. Run all cells in order so the notebook trains and evaluates all the models.
+### Notebook experiments
 
-Python version:
-- For `logisticreg_experiment.ipynb,` - Python version 3.13.18
+1. Open `Experiment_git.ipynb` or `logisticreg_experiment.ipynb` in Jupyter from `submissions/team-18/`.
+2. Install `pandas`, `numpy`, `scipy`, `scikit-learn`, and `matplotlib` in the notebook’s Python environment.
+3. Put the competition files `train.csv`, `test.csv`, and `unlabeled.csv` next to the notebooks.
+4. Run all cells in order to train and evaluate the models.
 
 ### Minghan’s CPU experiments
 
@@ -53,7 +48,7 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-Create a `data/` folder inside `submissions/team-18/` and place the competition’s `train.csv` there. Keep the CSV in its original row order to reproduce the same stratified split of 8,000 training and 2,000 validation examples.
+Create a `data/` folder inside `submissions/team-18/` and place a copy of `train.csv` there. Keep its original row order to reproduce the validation split.
 
 Run the logistic regression baseline and the four model comparisons:
 
@@ -65,9 +60,14 @@ python train.py --train data/train.csv --model boost --seed 42 --run-dir models/
 python train.py --train data/train.csv --model mlp --seed 42 --run-dir models/val-mlp
 ```
 
-Each run saves its configuration, AUROC, and runtime in `run.json` inside its output directory. It also saves the validation IDs and scores in `validation_predictions.csv`. Use a fresh `--run-dir` when rerunning an experiment.
+Each run saves its configuration, AUROC, and runtime in `run.json` and its per-example validation scores in `validation_predictions.csv`. Use a fresh `--run-dir` for each rerun.
 
-### Instructions for Final Model/Submission.csv
+### Final Kaggle submission
+
+Run all cells in Peter’s `Experiment_git.ipynb`. The final trigram cell writes `experiment_word_trigrams.csv`, the selected submission that scored **0.95792 public AUROC**. The file contains one predicted AI probability per test ID in the `label` column. If you need a file named `submission.csv`, copy `experiment_word_trigrams.csv` to that name.
+
+Keep the competition data, saved models, and generated CSVs out of Git.
+
 
 ## AI Disclosure
 
