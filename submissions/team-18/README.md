@@ -43,6 +43,30 @@ As we primarily used the Jupyter Notebook to run our experiments please referenc
 Python version:
 - For `logisticreg_experiment.ipynb,` - Python version 3.13.18
 
+### Minghan’s CPU experiments
+
+Run these commands from `submissions/team-18/`. The experiments were run with Python 3.13.5 on a laptop CPU.
+
+```bash
+python3.13 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+Create a `data/` folder inside `submissions/team-18/` and place the competition’s `train.csv` there. Keep the CSV in its original row order to reproduce the same stratified split of 8,000 training and 2,000 validation examples.
+
+Run the logistic regression baseline and the four model comparisons:
+
+```bash
+python train.py --train data/train.csv --model linear --seed 42 --run-dir models/val-linear
+python train.py --train data/train.csv --model tree --seed 42 --run-dir models/val-tree
+python train.py --train data/train.csv --model forest --seed 42 --run-dir models/val-forest
+python train.py --train data/train.csv --model boost --seed 42 --run-dir models/val-boost
+python train.py --train data/train.csv --model mlp --seed 42 --run-dir models/val-mlp
+```
+
+Each run saves its configuration, AUROC, and runtime in `run.json` inside its output directory. It also saves the validation IDs and scores in `validation_predictions.csv`. Use a fresh `--run-dir` when rerunning an experiment.
+
 ### Instructions for Final Model/Submission.csv
 
 ## AI Disclosure
