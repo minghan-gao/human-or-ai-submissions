@@ -15,3 +15,26 @@ The first models we experimented with were logistic regression, multimodal Naive
 *INSERT OTHER MODELS HERE* 
 
 ## How to Run 
+
+As we primarily used the Jupyter Notebook to run our experiments please reference these instructions to run the code.
+
+1. Access and open our experiments ('Experiment_git.ipynb,' 'logisticreg_experiment.ipynb,' **'minghan's experiment'**)
+2. Install the required libraries:
+   - pandas
+   - numpy
+   - scikit-learn
+   - matplotlib
+3. Upload the test.csv, train.csv, and unlabeled.csv files
+4. Run all cells in order so the notebook trains and evaluates all the models.
+
+Python version:
+- For 'logisticreg_experiment.ipynb,' - Python version 3.13.18
+
+### Instructions for Final Model/Submission.csv
+
+## AI Disclosure
+
+For this assignment, we used AI tools like ChatGPT to help us understand concepts, as a coding aid, and to help
+with LaTeX formatting. It helped explain equations and what some questions were asking, how to
+approach problems, and developing and troubleshooting Python code.
+
