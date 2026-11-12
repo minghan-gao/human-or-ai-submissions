@@ -10,7 +10,18 @@ This project was about developing a binary test classifier by experimenting with
 
 **For validation experiments, we used a random seed of 42 and split the data into 8,000 training and 2,000 validation examples. The selected Kaggle models were retrained on all 10,000 labeled examples.**
 
-The first models we experimented with were logistic regression, multimodal Naive Bayes, and SVM which used TF-IDF features for the text. Of these models, Logistic Regression score the highest validation AUROC score of 0.9246 after hyperparameter tuning, however when we made the first submission we received a score of 0.81356 from Kaggle which was lower than our validation score. 
+### Pallavi's Classification Model Experiments
+
+The models I experimented with were logistic regression, multinomial Naive Bayes, and linear SVM which used TF-IDF features for the text. To improve the performance of logistic regression and linear SVM, we tuned the regularization parameter C. Of these models, Logistic Regression score the highest validation AUROC score of 0.9246 after hyperparameter tuning, however when we made the first submission we received a public AUROC score of 0.81356 from Kaggle. 
+
+| Model | Main settings | Train AUROC | Validation AUROC | Training time |
+|---|---|---:|---:|---:|
+| Logistic Regression (baseline) | TF-IDF, C=1, max_iter=1000 | 0.9744 | 0.9222 | 0.12 s |
+| Multinomial Naive Bayes | TF-IDF, default settings | 0.9202 | 0.8654 | 0.01 s |
+| Linear SVM (baseline) | TF-IDF, C=1, max_iter=5000 | 0.9997 | 0.9221 | 0.15 s |
+| **Logistic Regression (tuned)** | TF-IDF, C=10, max_iter=1000 | 0.9995 | **0.9246** | 0.19 s |
+| Linear SVM (tuned) | TF-IDF, C=0.1, max_iter=5000 | 0.9757 | 0.9236 | 0.08 s |
+
 
 ### Minghan’s CPU experiments
 
